@@ -1,21 +1,27 @@
 package com.example.prova_java.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity(name = "Usuario")
 @Table(name = "usuarios")
 public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
     private String senha;
 
-    public Usuario(Long id, String nome, String email, String senha) {
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Usuario(Long id, String nome, String email, String senha, Role role) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.role = role;
     }
 
     public Usuario() {}
@@ -50,5 +56,19 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setDados(Usuario novosDados) {
+        this.nome = novosDados.nome;
+        this.senha = novosDados.senha;
     }
 }

@@ -9,7 +9,8 @@ public class UsuarioMapper {
                 domain.getId(),
                 domain.getNome(),
                 domain.getEmail(),
-                domain.getSenha()
+                domain.getSenha(),
+                domain.getRole()
         );
     }
 
@@ -18,7 +19,8 @@ public class UsuarioMapper {
                 dto.getId(),
                 dto.getNome(),
                 dto.getEmail(),
-                dto.getSenha()
+                dto.getSenha(),
+                dto.getRole()
         );
     }
 }
